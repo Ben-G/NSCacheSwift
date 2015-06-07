@@ -10,6 +10,17 @@ A Swift friendly drop-in replacement for `NSCache`, built on top of `NSCache` th
 - Using vaue types as keys and values
 - Subscripts
 
+##Why?
+
+`NSCache` is a great tool, but it lacks support for many Swift features, making its usage with Swift difficult:
+
+    // NSCacheSwift usage:
+    let image = cache["key"]
+    
+    // NSCache usage:
+    let image = nscache.objectForKey("key") as! UIImage
+
+
 ##Installation
 
 You can install the library using Carthage by adding the following line to your Cartfile:
