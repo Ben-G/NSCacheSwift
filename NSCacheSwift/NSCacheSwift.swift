@@ -64,7 +64,7 @@ public class NSCacheSwift<T: Hashable, U> {
   public func objectForKey(key: T) -> U? {
     let key: AnyObject = replaceKeyIfNeccessary(key)
 
-    var value = cache.objectForKey(key) as? U
+    let value = cache.objectForKey(key) as? U
       ?? (cache.objectForKey(key) as? Container<U>)?.content
     
     return value
@@ -114,7 +114,7 @@ public class NSCacheSwift<T: Hashable, U> {
     if let key: AnyObject = key {
       return key
     } else {
-      var container = NSObject()
+      let container = NSObject()
       keyReplacers[originalKey] = container
       
       return container

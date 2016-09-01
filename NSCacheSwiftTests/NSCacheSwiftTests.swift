@@ -40,43 +40,43 @@ class NSCacheSwiftTests: XCTestCase {
   // MARK: Additional NSCacheSwift Functionality
   
   func testCanAddValueTypesAsValues() {
-    var cache = NSCacheSwift <String, A> ()
+    let cache = NSCacheSwift <String, A> ()
     cache["key"] = A()
 
-    var value = cache["key"]
+    let value = cache["key"]
     XCTAssertTrue(value != nil)
   }
   
   func testCanUseValueTypeAsKey() {
-    var cache = NSCacheSwift <B, String> ()
+    let cache = NSCacheSwift <B, String> ()
     cache[B(id:1)] = "OK"
     
-    var value = cache[B(id: 1)]
+    let value = cache[B(id: 1)]
     XCTAssertTrue(value == "OK")
   }
   
   func testComparesEqualityOfValueTypeKeys() {
-    var cache = NSCacheSwift <B, String> ()
+    let cache = NSCacheSwift <B, String> ()
     cache[B(id:1)] = "OK"
     
-    var value = cache[B(id: 2)]
+    let value = cache[B(id: 2)]
     XCTAssertTrue(value == nil)
   }
   
   func testCanRemoveWithValueTypeKeys() {
-    var cache = NSCacheSwift <B, String> ()
+    let cache = NSCacheSwift <B, String> ()
     cache[B(id:1)] = "OK"
     
     cache.removeObjectForKey(B(id:1))
-    var value = cache[B(id: 1)]
+    let value = cache[B(id: 1)]
     XCTAssertTrue(value == nil)
   }
   
   // MARK: Existing NSCache Functionality
   
   func testRemoveAll() {
-    var cache = NSCacheSwift <NSObject, NSObject> ()
-    var key = NSObject()
+    let cache = NSCacheSwift <NSObject, NSObject> ()
+    let key = NSObject()
     cache.setObject(NSObject(), forKey: key)
     cache.removeAllObjects()
     
